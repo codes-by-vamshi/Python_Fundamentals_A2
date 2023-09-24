@@ -33,10 +33,13 @@ class Sort(ABC):
 class BubbleSort(Sort):
     """Class that represents a BubbleSort implementation."""
 
-    def _sort(self, items):
-        # your code here
-
-        return items
+    def _sort(self):
+        _items = self.get_items().copy()
+        for i in range(len(_items)):
+            for j in range(len(_items)-i-1):
+                if _items[j] > _items[j+1]:
+                    _items[j],_items[j+1] = _items[j+1],_items[j]
+        return _items
 
 
 """Module with the implementation of the MergeSort algorithm."""
@@ -44,12 +47,33 @@ class BubbleSort(Sort):
 class MergeSort(Sort):
     """Class that represents a MergeSort implementation."""
 
-    def _sort(self, items):
-        # your code here
-
-        return sorted_items
+    def _sort(self):
+        _items = self.get_items().copy()
+        size = 1
+        while True:
+            if(size >= len(_items)):
+                break
+            else:
+                for i in range(0,len(_items),size*2):
+                    left = _items[i : i+size]
+                    right = _items[i+size : i+size*2]
+                    merged = self._merge(left,right)
+                    _items[i : i+len(merged)] = merged
+                size = size*2
+        return _items
 
     def _merge(self, left, right):
-        # your code here
-
+        merged = []
+        i,j = 0,0
+        while i < len(left) and j < len(right):
+            if(left[i] < right[j]):
+                merged.append(left[i])
+                i+=1
+            else:
+                merged.append(right[j])
+                j+=1
+        if(i!=len(left)):
+            merged.extend(left[i:])
+        if(j!=len(right)):
+            merged.extend(right[j:])
         return merged
