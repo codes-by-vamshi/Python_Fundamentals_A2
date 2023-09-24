@@ -23,9 +23,9 @@ class Sort(ABC):
 
     def _time(self):
         self._time = time.perf_counter()
-        self._sort(self.get_items())
+        self._sort()
         self._time = time.perf_counter() - self._time
-        return self.time
+        return self._time
 
 
 """Module with the implementation of the BubbleSort algorithm."""

@@ -25,7 +25,7 @@ class Search(ABC):
         self._time = time.perf_counter()
         self._search(item)
         self._time = time.perf_counter() - self._time
-        return self.time
+        return self._time
 
 
 """Module with the implementation of the Linear Search algorithm."""
