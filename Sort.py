@@ -22,7 +22,9 @@ class Sort(ABC):
         return self._items
 
     def _time(self):
-        self.time = 0
+        self._time = time.perf_counter()
+        self._sort(self.get_items())
+        self._time = time.perf_counter() - self._time
         return self.time
 
 
@@ -35,11 +37,6 @@ class BubbleSort(Sort):
         # your code here
 
         return items
-
-    def _time(self, items):
-        # your code here
-
-        return self.time
 
 
 """Module with the implementation of the MergeSort algorithm."""
@@ -56,8 +53,3 @@ class MergeSort(Sort):
         # your code here
 
         return merged
-
-    def _time(self, items):
-        # your code here
-
-        return self.time
