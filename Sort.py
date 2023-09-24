@@ -22,7 +22,9 @@ class Sort(ABC):
         return self._items
 
     def _time(self):
-        self.time = 0
+        self._time = time.perf_counter()
+        self._sort(self.get_items())
+        self._time = time.perf_counter() - self._time
         return self.time
 
 
@@ -44,17 +46,33 @@ class BubbleSort(Sort):
 class MergeSort(Sort):
     """Class that represents a MergeSort implementation."""
 
-    def _sort(self, items):
-        # your code here
-
-        return sorted_items
+    def _sort(self):
+        _items = self.get_items().copy()
+        size = 1
+        while True:
+            if(size >= len(_items)):
+                break
+            else:
+                for i in range(0,len(_items),size*2):
+                    left = _items[i : i+size]
+                    right = _items[i+size : i+size*2]
+                    merged = self._merge(left,right)
+                    _items[i : i+len(merged)] = merged
+                size = size*2
+        return _items
 
     def _merge(self, left, right):
-        # your code here
-
+        merged = []
+        i,j = 0,0
+        while i < len(left) and j < len(right):
+            if(left[i] < right[j]):
+                merged.append(left[i])
+                i+=1
+            else:
+                merged.append(right[j])
+                j+=1
+        if(i!=len(left)):
+            merged.extend(left[i:])
+        if(j!=len(right)):
+            merged.extend(right[j:])
         return merged
-
-    def _time(self, items):
-        # your code here
-
-        return self.time

@@ -21,8 +21,10 @@ class Search(ABC):
     def get_items(self):
         return self._items
 
-    def _time(self):
-        self.time = 0
+    def _time(self, item):
+        self._time = time.perf_counter()
+        self._search(item)
+        self._time = time.perf_counter() - self._time
         return self.time
 
 
@@ -31,15 +33,11 @@ class Search(ABC):
 class LinSearch(Search):
     """Class that represents a Linear Search implementation."""
 
-    def _search(self, items):
-        # your code here
-
+    def _search(self, item):
+        for i in self.get_items():
+            if i == item:
+                return True
         return False
-
-    def _time(self, items):
-        # your code here
-
-        return self.time
 
 
 """Module with the implementation of the Binary Search algorithm."""
