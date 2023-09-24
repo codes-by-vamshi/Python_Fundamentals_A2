@@ -32,15 +32,18 @@ class LinSearch(Search):
     """Class that represents a Linear Search implementation."""
 
     def _search(self, item):
-        # your code here
-        
-
+        n=len(self._items)
+        for i in range(n):
+            if self._items[i] == item:
+                return True
         return False
 
-    def _time(self, items):
-        # your code here
-
-        return self.time
+    def _time(self, item):
+        start_time =time.time()
+        self._search(self, item)
+        end_time =time.time()
+        timetaken= end_time - start_time
+        return timetaken
 
 
 """Module with the implementation of the Binary Search algorithm."""
