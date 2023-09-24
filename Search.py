@@ -31,8 +31,9 @@ class Search(ABC):
 class LinSearch(Search):
     """Class that represents a Linear Search implementation."""
 
-    def _search(self, items):
+    def _search(self, item):
         # your code here
+        
 
         return False
 
