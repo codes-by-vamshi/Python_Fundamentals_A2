@@ -31,16 +31,13 @@ class Sort(ABC):
 class BubbleSort(Sort):
     """Class that represents a BubbleSort implementation."""
 
-    def _sort(self, items):
-        # your code here
-
-        return items
-
-    def _time(self, items):
-        # your code here
-
-        return self.time
-
+    def _sort(self):
+        _items = self.get_items().copy()
+        for i in range(len(_items)):
+            for j in range(len(_items)-i-1):
+                if _items[j] > _items[j+1]:
+                    _items[j],_items[j+1] = _items[j+1],_items[j]
+        return _items
 
 """Module with the implementation of the MergeSort algorithm."""
 
