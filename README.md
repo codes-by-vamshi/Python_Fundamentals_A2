@@ -12,6 +12,7 @@
 import Search
 
 searchObj = Search.LinSearch([1,2,3,4])
+
 print(searchObj._search(2))
 
 ### to get time for search
@@ -21,6 +22,7 @@ print(searchObj._time(2))
 import Search
 
 searchObj = Search.LinSearch([1,2,3,4])
+
 print(searchObj._search(2))
 
 ### to get time for search
@@ -32,6 +34,7 @@ print(searchObj._time(2))
 import Sort
 
 sortObj = Sort.BubbleSort([3,4,2,1])
+
 print(sortObj._sort())
 
 ### to get time for sort
@@ -41,6 +44,7 @@ print(sortObj._time([3,4,2,1]))
 import Sort
 
 sortObj = Sort.MergeSort([3,4,2,1])
+
 print(sortObj._sort())
 
 ### to get time for sort
