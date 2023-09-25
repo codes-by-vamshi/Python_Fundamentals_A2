@@ -47,13 +47,19 @@ class LinSearch(Search):
 class BinSearch(Search):
     """Class that represents a Binary Search implementation."""
 
-    def _search(self, items):
-        # your code here
-
+    def _search(self, item):
+        _items = self.get_items()
+        left, right = 0, len(_items)-1
+        while True:
+            if(left > right):
+                break
+            else:
+                mid = (left + right) //2
+                if(_items[mid] == item):
+                    return True
+                else:
+                    if(_items[mid] < item):
+                        left = mid + 1
+                    else:
+                        right = mid - 1
         return False
-
-
-    def _time(self, items):
-        # your code here
-
-        return self.time
