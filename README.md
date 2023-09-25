@@ -43,9 +43,9 @@ print(sortObj._time())
 ## Merge Sort
 import Sort
 
-sortObj = Sort.MergeSort()
+sortObj = Sort.MergeSort([3,4,2,1])
 
 print(sortObj._sort())
 
 ### to get time for sort
-print(sortObj._time([3,4,2,1]))
+print(sortObj._time())
