@@ -35,7 +35,7 @@ class LinSearch(Search):
     """Class that represents a Linear Search implementation."""
 
     def _search(self, item):
-        # Searches item in the list by iterating over list by one item after the other
+        # Searches item in the list by iterating over list by one item after the other 
         for i in self.get_items():
             if i == item:
                 # Returns True when Item found
